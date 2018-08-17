@@ -1,5 +1,7 @@
 # blackjack_score.rb
-require 'pry'
+#require 'pry'
+
+
 VALID_CARDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'King', 'Queen', 'Jack']
 
 def blackjack_score(hand)
@@ -14,6 +16,8 @@ def blackjack_score(hand)
       facecards_converted << value.to_i
     when 1, 2, 3, 4, 5, 6, 7, 8, 9
       facecards_converted << element.to_i
+    else
+      raise ArgumentError, 'invalid card type '
     end
   end
 
@@ -33,12 +37,19 @@ def blackjack_score(hand)
     else
       aces_converted << card.to_i
     end
-      # binding.pry
+    # binding.pry
   end
+  # #raise argument error for edge case: invalid cards
+  #   card_intersections = hand & VALID_CARDS
+  #   # binding.pry
+  #   if card_intersections.count != hand.count
+  #       raise ArgumentError, 'invalid card type '
+  #   end
+  #     #compare the card to the valid card array
   hand_score = aces_converted.sum
   return hand_score
 end
 
-# hand = [3, 1, 'Queen']
+# hand = [3, 1, 'Queen', 'seven']
 # test_hand = blackjack_score(hand)
 # puts test_hand
