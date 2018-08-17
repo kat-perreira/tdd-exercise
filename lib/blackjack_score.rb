@@ -37,16 +37,13 @@ def blackjack_score(hand)
     else
       aces_converted << card.to_i
     end
-    # binding.pry
+
   end
-  # #raise argument error for edge case: invalid cards
-  #   card_intersections = hand & VALID_CARDS
-  #   # binding.pry
-  #   if card_intersections.count != hand.count
-  #       raise ArgumentError, 'invalid card type '
-  #   end
-  #     #compare the card to the valid card array
+
   hand_score = aces_converted.sum
+  if hand_score > 21
+    raise ArgumentError, 'bust: scored over 21'
+  end
   return hand_score
 end
 
