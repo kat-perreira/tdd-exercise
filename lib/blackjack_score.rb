@@ -1,6 +1,4 @@
 # blackjack_score.rb
-# require 'pry'
-
 
 VALID_CARDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'King', 'Queen', 'Jack']
 
@@ -8,8 +6,8 @@ def blackjack_score(hand)
   facecards_converted = []
   aces_converted = []
 
+  # Set facecard values to 10, raise an exception for invalid card types
   hand.each do |element|
-    # set facecard values to 10
     case element
     when "King", "Queen", "Jack"
       value = 10
@@ -21,7 +19,7 @@ def blackjack_score(hand)
     end
   end
 
-  # take sum of the handcards, set ace to 1 or 11
+  # Take sum of the handcards, set ace to 1 or 11
   hand_case1 = facecards_converted.sum
   facecards_converted.each do | card |
 
@@ -42,7 +40,7 @@ def blackjack_score(hand)
 
   hand_score = aces_converted.sum
 
-  # Raise Eexception for score over 21
+  # Raise exception for score over 21
   if hand_score > 21
     raise ArgumentError, 'bust: scored over 21'
   end
@@ -54,7 +52,3 @@ def blackjack_score(hand)
 
   return hand_score
 end
-
-# hand = [3, 1, 'Queen', 'seven']
-# test_hand = blackjack_score(hand)
-# puts test_hand
