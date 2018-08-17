@@ -71,6 +71,16 @@ describe 'Blackjac Score' do
   end
 
   it 'raises an ArgumentError for scores over 21' do
+    # Arrange
+    hand = ['King', 'Queen', 5, 7]
+    #Act Assert  call the method within the do...end block
+    expect do
+      blackjack_score(hand)
+    end.must_raise ArgumentError
+  end
+
+  it 'raises an ArgumentError for hand with more than 5 cards' do
+
 
   end
 end
